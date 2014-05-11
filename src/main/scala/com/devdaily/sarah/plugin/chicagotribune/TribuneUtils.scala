@@ -65,34 +65,14 @@ object TribuneUtils {
   
   // TODO move this list to the properties file
   private def storyContainsDesiredPhrase(s: String): Boolean = {
-      val topics = List("Bulls", "Cubs", "Colts", "Bears", "Rose", "Noah", "Thibodeau", "Chris Sale", "Konerko")
+      val topics = List("Bulls", "Cubs", "Colts", "Bears", "Rose", 
+              "Noah", "Thibodeau", "Chris Sale", "Konerko", 
+              "Renteria", "Castro", "Rizzo", "Olt", "Samard", "Arrieta", "Hammel")
       for (t <- topics) {
           if (s.contains(t)) return true
       }
       false
-  }
-  
-// TODO remove this; i'm leaving it here for one check-in to get it into git
-//  def getHeadlinesFromUrl(url: String): List[String] = {
-//      var stories = new ListBuffer[String]
-//      val cleaner = new HtmlCleaner
-//      val props = cleaner.getProperties
-//      val rootNode = cleaner.clean(new URL(url))
-//      val elements = rootNode.getElementsByName("a", true)
-//      for (elem <- elements) {
-//          val classType = elem.getAttributeByName("class")
-//          if (classType != null && classType.equalsIgnoreCase("articleTitle")) {
-//              val text = StringEscapeUtils.unescapeHtml4(elem.getText.toString)
-//              stories += text
-//          }
-//    }
-//
-//    // stories might be "dirty" with text like "&#039;", clean it up
-//    stories.filter(storyContainsDesiredPhrase(_)).toList
-//  }
-  
-  
-  
+  }  
   
 }
 
